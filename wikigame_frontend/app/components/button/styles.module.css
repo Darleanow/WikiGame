@@ -5,6 +5,7 @@
   border-radius: 16px;
   box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 10px;
   transition: 0.2s ease-in;
+  user-select: none;
 }
 
 .button:hover {
