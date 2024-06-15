@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jura:wght@300..700&display=swap");
+
+* {
+  font-family: "Jura", sans-serif;
+  color: #ffffff;
+}
+
+html,
+body {
+  background-color: #0d0d0d;
+  padding: 0;
+  margin: 0;
+}
