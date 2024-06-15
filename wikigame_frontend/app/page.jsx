@@ -16,6 +16,7 @@ export default function Page() {
   const [username, setUsername] = useState("");
 
   const handlePlaySolo = () => {
+    console.log(username);
     if (username.trim() === "" || username.trim().length < 3) {
       // Customize the toast here (position, message, etc.)
       toast.error("Please enter a name with at least 3 characters", {});
@@ -30,9 +31,9 @@ export default function Page() {
       <Hero />
       <div className={styles.name_container}>
         <div className={styles.name_input}>
-          {/* Pass setUsername to Input to update the username state */}
           <Input
             placeholder="Enter your name"
+            value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
