@@ -1,20 +1,40 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify"; // Import toast library
+import "react-toastify/dist/ReactToastify.css"; // Import toast CSS
+
 import styles from "./styles.module.css";
-
 import Hero from "./components/hero/hero";
-
 import Input from "./components/input/input";
 import Button from "./components/button/button";
 import Text from "./components/text/text";
 
 export default function Page() {
+  const router = useRouter();
+  const [username, setUsername] = useState("");
+
+  const handlePlaySolo = () => {
+    if (username.trim() === "" || username.trim().length < 3) {
+      // Customize the toast here (position, message, etc.)
+      toast.error("Please enter a name with at least 3 characters", {});
+      return;
+    }
+
+    router.push(`/game?username=${encodeURIComponent(username)}`);
+  };
+
   return (
     <>
       <Hero />
       <div className={styles.name_container}>
         <div className={styles.name_input}>
-          <Input placeholder="Enter your name" />
+          {/* Pass setUsername to Input to update the username state */}
+          <Input
+            placeholder="Enter your name"
+            onChange={(e) => setUsername(e.target.value)}
+          />
         </div>
       </div>
       <div className={styles.play_solo_container}>
@@ -23,7 +43,7 @@ export default function Page() {
             <Text children={`Play solo`} />
             <Button
               bgColor="rgba(86,79,104,0.47)"
-              onClick={() => alert("Button clicked!")}
+              onClick={handlePlaySolo} // Call handlePlaySolo on click
               children={`Start Game`}
             />
           </div>
@@ -49,6 +69,18 @@ export default function Page() {
             />
           </div>
         </div>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
       </div>
     </>
   );
