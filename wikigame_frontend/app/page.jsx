@@ -21,12 +21,35 @@ export default function Page() {
       </div>
       <div className={styles.play_solo_container}>
         <div className={styles.play_solo_box}>
-          <Text children={`Play solo`} />
-          <Button
-            bgColor="rgba(86,79,104,0.47)"
-            onClick={() => alert("Button clicked!")}
-            children={`Start Game`}
-          />
+          <div className={styles.play_solo}>
+            <Text children={`Play solo`} />
+            <Button
+              bgColor="rgba(86,79,104,0.47)"
+              onClick={() => alert("Button clicked!")}
+              children={`Start Game`}
+            />
+          </div>
+          <div className={styles.host}>
+            <Text children={`Or host your game`} />
+            <Button
+              bgColor="rgba(109,79,99,0.47)"
+              onClick={() => alert("Button clicked!")}
+              children={`Host a game`}
+            />
+          </div>
+        </div>
+      </div>
+      <div className={styles.play_multiplayer_container}>
+        <div className={styles.play_multiplayer_box}>
+          <Text children={`Already have some friends ? Enter your seed here`} />
+          <div className={styles.input_and_submit}>
+            <Input placeholder="Paste the seed here" />
+            <Button
+              bgColor="rgba(86,79,104,0.47)"
+              onClick={() => alert("Button clicked!")}
+              children={`Join them now !`}
+            />
+          </div>
         </div>
       </div>
     </>
