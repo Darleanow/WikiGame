@@ -1,15 +1,25 @@
 import styles from "./styles.module.css";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbar_left}>
-        <button className={styles.navbar_link}>About</button>
-        <button className={styles.navbar_link}>LeaderBoard</button>
-        <button className={styles.navbar_link}>Rules</button>
+        <Link href="/about" className={styles.navbar_link}>
+          About
+        </Link>
+        <Link href="/leaderboard" className={styles.navbar_link}>
+          LeaderBoard
+        </Link>
+        <Link href="/rules" className={styles.navbar_link}>
+          Rules
+        </Link>
       </div>
       <div className={styles.navbar_right}>
-        <button className={styles.navbar_link + styles.button_disabled} disabled>
+        <button
+          className={styles.navbar_link + styles.button_disabled}
+          disabled
+        >
           Switch theme
         </button>
       </div>
