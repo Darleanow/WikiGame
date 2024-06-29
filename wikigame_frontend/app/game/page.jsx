@@ -7,7 +7,7 @@ import GameContent from "./gameContent";
 import styles from "./styles.module.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Popup from "../components/Popup/Popup";
+import Popup from "../components/Popup/popup";
 
 const Game = () => {
   const [startArticle, setStartArticle] = useState(null);
