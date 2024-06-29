@@ -2,16 +2,14 @@ import React, { useEffect } from "react";
 import styles from "./styles.module.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./globals.scss";
 
-export default React.memo(function GameContent({
-  randomArticleContent,
-  handleLinkClick,
-}) {
+const GameContent = React.memo(({ randomArticleContent, handleLinkClick }) => {
   useEffect(() => {
     const handleKeyDown = (event) => {
       if ((event.ctrlKey || event.metaKey) && event.key === "f") {
-        event.preventDefault();
-        toast.error("Come on man, don't cheat like this...", {});
+        // event.preventDefault();
+        // toast.error("Come on man, don't cheat like this...", {});
       }
     };
 
@@ -27,7 +25,8 @@ export default React.memo(function GameContent({
       <div className={styles.wikipedia_content} onClick={handleLinkClick}>
         <div
           dangerouslySetInnerHTML={{ __html: randomArticleContent }}
-          className={styles.article_content}
+          // This is a disgusting trick to apply unpure selectors to only one component class
+          className="article_content"
         />
       </div>
       <ToastContainer
@@ -45,3 +44,5 @@ export default React.memo(function GameContent({
     </>
   );
 });
+
+export default GameContent;

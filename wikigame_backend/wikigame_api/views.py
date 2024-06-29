@@ -133,7 +133,7 @@ def get_random_articles(request):
             })
         return JsonResponse({
             "start": articles[0],
-            "current": articles[0], # Initial current article is the same as start
+            "current": articles[0],
             "goal": articles[2]
         })
     except Exception as e:
