@@ -1,0 +1,25 @@
+.navbar_container {
+  display: flex;
+  width: calc(100% - 4vw);
+  flex-direction: row;
+  gap: 4vw;
+  align-items: center;
+  justify-content: center;
+  background-color: #191919;
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 10px;
+  border: 1px solid #636363;
+  border-radius: 16px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 1em 0;
+  user-select: none;
+}
+
+.navbar_container:hover {
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 20px;
+  transition: 0.2s ease-in;
+}
+
+.span_text_game {
+  position: fixed;
+}
