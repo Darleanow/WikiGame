@@ -3,5 +3,8 @@
         "classname",
         "leaderboard",
         "toastify"
+    ],
+    "conventionalCommits.scopes": [
+        "Popup"
     ]
 }
