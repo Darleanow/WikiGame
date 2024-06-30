@@ -64,7 +64,7 @@ export default function Page() {
             <Input placeholder="Paste the run seed here" />
             <Button
               bgColor="rgba(86,79,104,0.47)"
-              onClick={() => alert("Button clicked!")}
+              onClick={() => toast.error("Promise i'll implement it soon :D", {})}
               children={`Let's get it !`}
             />
           </div>

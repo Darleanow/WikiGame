@@ -5,6 +5,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import styles from "./styles.module.css";
+
 const kv_api_url = process.env.NEXT_PUBLIC_KV_REST_API_URL;
 const kv_api_token = process.env.NEXT_PUBLIC_KV_REST_API_TOKEN;
 
@@ -44,12 +46,30 @@ const Leaderboard = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.leaderboard}>
       <h1>Leaderboard</h1>
-      <ul>
-        {scores.map((entry, index) => (
-          <li key={index}>
-            {index + 1}. {entry.username}: {entry.score}
+      <div className={styles.topThree}>
+        {scores.slice(0, 3).map((entry, index) => {
+          let entryClass = '';
+          if (index === 0) entryClass = styles.firstPlace;
+          else if (index === 1) entryClass = styles.secondPlace;
+          else if (index === 2) entryClass = styles.thirdPlace;
+
+          return (
+            <div key={index} className={`${styles.topEntry} ${entryClass}`}>
+              <div className={styles.rank}>{index + 1}</div>
+              <div className={styles.playerName}>{entry.username}</div>
+              <div className={styles.score}>{entry.score}</div>
+            </div>
+          );
+        })}
+      </div>
+      <ul className={styles.otherPlayers}>
+        {scores.slice(3).map((entry, index) => (
+          <li key={index + 3} className={styles.playerEntry}>
+            <div className={styles.rank}>{index + 4}</div>
+            <div className={styles.playerName}>{entry.username}</div>
+            <div className={styles.score}>{entry.score}</div>
           </li>
         ))}
       </ul>

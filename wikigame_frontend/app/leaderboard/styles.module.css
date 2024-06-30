@@ -1,0 +1,87 @@
+.leaderboard {
+  padding: 20px;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border: 1px solid #696969;
+  max-width: 1000px;
+  margin: 20px auto;
+
+  transition: 0.2s ease-in;
+}
+
+.leaderboard:hover {
+  box-shadow: 0 0 10px rgba(82, 82, 82, 0.5);
+  transition: 0.2s ease-in;
+}
+
+.leaderboard h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.topThree {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.topEntry {
+  flex: 1;
+  margin: 0 10px;
+  padding: 20px;
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.firstPlace {
+  border: 2px solid gold;
+}
+
+.secondPlace {
+  border: 2px solid silver;
+}
+
+.thirdPlace {
+  border: 2px solid #cd7f32; /* Bronze */
+}
+
+.rank {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.playerName {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.score {
+  font-size: 1.2em;
+
+}
+
+.otherPlayers {
+  list-style: none;
+  padding: 0;
+}
+
+.playerEntry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #2a2a2a;
+  border-radius: 8px;
+}
+
+.playerEntry .rank,
+.playerEntry .playerName,
+.playerEntry .score {
+  flex: 1;
+  text-align: center;
+  font-size: 2em !important;
+  margin-bottom: 0!important;
+}
