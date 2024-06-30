@@ -23,9 +23,6 @@ def get_article_content(url):
             {"class": "vector-body-before-content"},
             {"class": "printfooter"},
             {"class": "mw-editsection"},
-            {"id": "References"},
-            {"class": "reflist"},
-            {"class": "navbox"},
             {"id": "External_links"},
             {
                 "class": "vector-pinnable-header-toggle-button vector-pinnable-header-pin-button"
