@@ -5,6 +5,7 @@
         "toastify"
     ],
     "conventionalCommits.scopes": [
-        "Popup"
+        "Popup",
+        "Backend"
     ]
 }

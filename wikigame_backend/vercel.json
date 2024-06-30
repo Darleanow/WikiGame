@@ -7,5 +7,10 @@
       "config": { "maxLambdaSize": "15mb" }
     }
   ],
-  "routes": [{ "src": "/(.*)", "dest": "manage.py" }]
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/manage.py"
+    }
+  ]
 }
