@@ -74,7 +74,7 @@ const Game = () => {
         if (articleName === goalArticle.name) {
           setGoalReached(true);
           toast.success("Congratulations! You've reached the goal article!");
-          addScoreToLeaderboard(scoreRef.current * getMultiplier()); // Add score to leaderboard
+          addScoreToLeaderboard(scoreRef.current); // Add score to leaderboard
         } else {
           scoreRef.current = Math.max(
             0,
@@ -103,11 +103,11 @@ const Game = () => {
       );
 
       const currentScore = getResponse.data.result;
-
+      const newScore = score * getMultiplier();
       // Set the score only if the new score is better
-      if (!currentScore || score > parseInt(currentScore)) {
+      if (!currentScore || newScore > parseInt(currentScore)) {
         await axios.get(
-          `${kv_api_url}/set/${username}/${score}`,
+          `${kv_api_url}/set/${username}/${newScore}`,
           {
             headers: {
               Authorization: `Bearer ${kv_api_token}`,
