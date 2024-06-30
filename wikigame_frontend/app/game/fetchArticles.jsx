@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect, useRef } from "react";
 import { toast } from "react-toastify";
 
@@ -16,7 +18,15 @@ const FetchArticles = ({
     setIsLoading(true);
     console.log("Using this url to fetch articles: ", api_url);
     try {
-      const response = await fetch(`${api_url}/api/get_random_articles`);
+      const response = await fetch(`${api_url}/api/get_random_articles`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
       const data = await response.json();
       if (data.error) {
         throw new Error(data.error);
