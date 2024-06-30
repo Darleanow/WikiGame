@@ -16,8 +16,8 @@ const Game = () => {
   const [currentArticle, setCurrentArticle] = useState(null);
   const [goalArticle, setGoalArticle] = useState(null);
   const [randomArticleContent, setRandomArticleContent] = useState("");
-  const [goalReached, setGoalReached] = useState(false); // Track if the goal is reached
-  const [routes, setRoutes] = useState([]); // Track the routes taken
+  const [goalReached, setGoalReached] = useState(false);
+  const [routes, setRoutes] = useState([]);
   const scoreRef = useRef(10000);
   const [, setScoreTrigger] = useState(0);
 
@@ -27,7 +27,6 @@ const Game = () => {
         scoreRef.current = Math.max(0, scoreRef.current - 1);
         setScoreTrigger(scoreRef.current);
       }
-      setGoalReached(true);
     }, 1000);
 
     return () => clearInterval(interval);
@@ -76,7 +75,7 @@ const Game = () => {
             0,
             Math.round(scoreRef.current - scoreRef.current * 0.01)
           );
-          setScoreTrigger(scoreRef.current); // Trigger re-render for score updates
+          setScoreTrigger(scoreRef.current);
         }
       }
     },

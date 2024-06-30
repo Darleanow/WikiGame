@@ -2,8 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { toast, ToastContainer } from "react-toastify"; // Import toast library
-import "react-toastify/dist/ReactToastify.css"; // Import toast CSS
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import styles from "./styles.module.css";
 import Hero from "./components/hero/hero";
