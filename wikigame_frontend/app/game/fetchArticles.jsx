@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { toast } from "react-toastify";
 
-const api_url = process.env.REACT_API_URL;
+const api_url = process.env.NEXT_PUBLIC_API_URL;
 
 const FetchArticles = ({
   setStartArticle,

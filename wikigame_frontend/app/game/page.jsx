@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Popup from "../components/Popup/popup";
 
-const api_url = process.env.REACT_API_URL;
+const api_url = process.env.NEXT_PUBLIC_API_URL;
 
 const Game = () => {
   const [startArticle, setStartArticle] = useState(null);
