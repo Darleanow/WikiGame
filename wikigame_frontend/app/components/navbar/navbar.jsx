@@ -18,14 +18,6 @@ export default function Navbar() {
           Rules
         </Link>
       </div>
-      <div className={styles.navbar_right}>
-        <button
-          className={styles.navbar_link + styles.button_disabled}
-          disabled
-        >
-          Switch theme
-        </button>
-      </div>
     </nav>
   );
 }
