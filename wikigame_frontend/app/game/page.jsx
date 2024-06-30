@@ -103,7 +103,7 @@ const Game = () => {
       );
 
       const currentScore = getResponse.data.result;
-      const newScore = score * getMultiplier();
+      const newScore = (score/2) * getMultiplier();
       // Set the score only if the new score is better
       if (!currentScore || newScore > parseInt(currentScore)) {
         await axios.get(
