@@ -14,6 +14,7 @@ const FetchArticles = ({
 
   const fetchArticles = async () => {
     setIsLoading(true);
+    console.log("Using this url to fetch articles: ", api_url);
     try {
       const response = await fetch(`${api_url}/api/get_random_articles`);
       const data = await response.json();

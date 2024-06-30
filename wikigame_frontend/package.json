@@ -1,8 +1,8 @@
 {
     "scripts": {
-        "dev": "next dev",
-        "build": "next build",
-        "start": "next start",
+        "dev": "cross-env NODE_ENV=development next dev",
+        "build": "cross-env NODE_ENV=production next build",
+        "start": "cross-env NODE_ENV=production next start",
         "lint": "next lint"
     },
     "dependencies": {
