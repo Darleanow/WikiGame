@@ -5,21 +5,6 @@ import "react-toastify/dist/ReactToastify.css";
 import "./globals.scss";
 
 const GameContent = React.memo(({ randomArticleContent, handleLinkClick }) => {
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if ((event.ctrlKey || event.metaKey) && event.key === "f") {
-        // event.preventDefault();
-        // toast.error("Come on man, don't cheat like this...", {});
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
-
   return (
     <>
       <div className={styles.wikipedia_content} onClick={handleLinkClick}>

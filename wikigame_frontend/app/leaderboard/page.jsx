@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -14,26 +14,20 @@ const Leaderboard = () => {
   useEffect(() => {
     const fetchScores = async () => {
       try {
-        const response = await axios.get(
-          `${kv_api_url}/keys/*`,
-          {
-            headers: {
-              Authorization: `Bearer ${kv_api_token}`,
-            },
-          }
-        );
+        const response = await axios.get(`${kv_api_url}/keys/*`, {
+          headers: {
+            Authorization: `Bearer ${kv_api_token}`,
+          },
+        });
 
         const keys = response.data.result;
 
         const scoresPromises = keys.map(async (key) => {
-          const scoreResponse = await axios.get(
-            `${kv_api_url}/get/${key}`,
-            {
-              headers: {
-                Authorization: `Bearer ${kv_api_token}`,
-              },
-            }
-          );
+          const scoreResponse = await axios.get(`${kv_api_url}/get/${key}`, {
+            headers: {
+              Authorization: `Bearer ${kv_api_token}`,
+            },
+          });
           return { username: key, score: parseInt(scoreResponse.data.result) };
         });
 

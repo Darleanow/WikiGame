@@ -143,12 +143,7 @@ const Game = () => {
               randomArticleContent={randomArticleContent}
               handleLinkClick={handleLinkClick}
             />
-            {goalReached && (
-              <Popup
-                score={scoreRef.current}
-                routes={routes}
-              />
-            )}
+            {goalReached && <Popup score={scoreRef.current} routes={routes} />}
           </>
         )}
       </div>

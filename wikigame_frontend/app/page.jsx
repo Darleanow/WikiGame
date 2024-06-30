@@ -18,7 +18,6 @@ export default function Page() {
   const handlePlaySolo = () => {
     console.log(username);
     if (username.trim() === "" || username.trim().length < 3) {
-      // Customize the toast here (position, message, etc.)
       toast.error("Please enter a name with at least 3 characters", {});
       return;
     }
