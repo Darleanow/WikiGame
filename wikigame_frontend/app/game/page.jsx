@@ -60,7 +60,7 @@ const Game = () => {
         event.preventDefault();
         const url =
           target.tagName === "A" ? target.href : target.parentElement.href;
-        const apiUrl = `https://${api_url}/api/fetch_article?url=${encodeURIComponent(
+        const apiUrl = `${api_url}/api/fetch_article?url=${encodeURIComponent(
           url
         )}`;
         await fetchArticle(apiUrl);
@@ -93,27 +93,22 @@ const Game = () => {
 
     try {
       // Check if the key/value exists
-      const getResponse = await axios.get(
-        `${kv_api_url}/get/${username}`,
-        {
+      const getResponse = await axios.get(`${kv_api_url}/get/${username}`, {
+        headers: {
+          Authorization: `Bearer ${kv_api_token}`,
+        },
+      });
+
+      const currentScore = getResponse.data.result;
+      const newScore = score;
+      console.log(currentScore, newScore);
+      // Set the score only if the new score is better
+      if (!currentScore || newScore > parseInt(currentScore)) {
+        await axios.get(`${kv_api_url}/set/${username}/${newScore}`, {
           headers: {
             Authorization: `Bearer ${kv_api_token}`,
           },
-        }
-      );
-
-      const currentScore = getResponse.data.result;
-      const newScore = (score/2) * getMultiplier();
-      // Set the score only if the new score is better
-      if (!currentScore || newScore > parseInt(currentScore)) {
-        await axios.get(
-          `${kv_api_url}/set/${username}/${newScore}`,
-          {
-            headers: {
-              Authorization: `Bearer ${kv_api_token}`,
-            },
-          }
-        );
+        });
         toast.success("Score updated on leaderboard!");
       } else {
         toast.info("Your score was not high enough to update the leaderboard.");
@@ -121,10 +116,6 @@ const Game = () => {
     } catch (error) {
       console.error("Error adding score to leaderboard:", error);
     }
-  };
-
-  const getMultiplier = () => {
-    return Math.max(1, 10 - routes.length);
   };
 
   return (
@@ -146,7 +137,7 @@ const Game = () => {
               startPageName={startArticle.name}
               currentPageName={currentArticle.name}
               goalPageName={goalArticle.name}
-              score={scoreRef.current  * getMultiplier()}
+              score={scoreRef.current}
             />
             <GameContent
               randomArticleContent={randomArticleContent}
@@ -156,7 +147,6 @@ const Game = () => {
               <Popup
                 score={scoreRef.current}
                 routes={routes}
-                multiplier={getMultiplier()}
               />
             )}
           </>

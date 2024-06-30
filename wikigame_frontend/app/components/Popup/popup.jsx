@@ -5,7 +5,7 @@ import confetti from "canvas-confetti";
 import styles from "./styles.module.css";
 import Button from "../button/button";
 
-const Popup = ({ score, routes, multiplier }) => {
+const Popup = ({ score, routes }) => {
   const router = useRouter();
   useEffect(() => {
     const duration = 15 * 1000;
@@ -48,7 +48,7 @@ const Popup = ({ score, routes, multiplier }) => {
       <div className={styles.popup_inner}>
         <h2>Congratulations!</h2>
         <p>You've reached the goal article!</p>
-        <p>Your final score is: {score * multiplier}</p>
+        <p>Your final score is: {score}</p>
         <h3>Routes Taken:</h3>
         <ul>
           {routes.map((route, index) => (
