@@ -18,6 +18,7 @@ const Game = () => {
   const [randomArticleContent, setRandomArticleContent] = useState("");
   const [goalReached, setGoalReached] = useState(false);
   const [routes, setRoutes] = useState([]);
+  const [loading, setLoading] = useState(true);
   const scoreRef = useRef(10000);
   const [, setScoreTrigger] = useState(0);
 
@@ -27,7 +28,6 @@ const Game = () => {
         scoreRef.current = Math.max(0, scoreRef.current - 1);
         setScoreTrigger(scoreRef.current);
       }
-      setGoalReached(true);
     }, 1000);
 
     return () => clearInterval(interval);
@@ -107,30 +107,36 @@ const Game = () => {
   return (
     <>
       <div className={styles.main_content}>
+        {loading && <span className={styles.loader}></span>}
         <FetchArticles
-          setStartArticle={setStartArticle}
+          setStartArticle={(article) => {
+            setStartArticle(article);
+            setLoading(false); // Stop loading when articles are fetched
+          }}
           setCurrentArticle={setCurrentArticle}
           setGoalArticle={setGoalArticle}
           setRandomArticleContent={setRandomArticleContent}
         />
-        {startArticle && currentArticle && goalArticle && (
-          <GameNavbar
-            startPageName={startArticle.name}
-            currentPageName={currentArticle.name}
-            goalPageName={goalArticle.name}
-            score={scoreRef.current}
-          />
-        )}
-        <GameContent
-          randomArticleContent={randomArticleContent}
-          handleLinkClick={handleLinkClick}
-        />
-        {goalReached && (
-          <Popup
-            score={scoreRef.current}
-            routes={routes}
-            multiplier={getMultiplier()}
-          />
+        {!loading && startArticle && currentArticle && goalArticle && (
+          <>
+            <GameNavbar
+              startPageName={startArticle.name}
+              currentPageName={currentArticle.name}
+              goalPageName={goalArticle.name}
+              score={scoreRef.current}
+            />
+            <GameContent
+              randomArticleContent={randomArticleContent}
+              handleLinkClick={handleLinkClick}
+            />
+            {goalReached && (
+              <Popup
+                score={scoreRef.current}
+                routes={routes}
+                multiplier={getMultiplier()}
+              />
+            )}
+          </>
         )}
       </div>
     </>
