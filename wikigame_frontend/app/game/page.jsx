@@ -60,7 +60,7 @@ const Game = () => {
         event.preventDefault();
         const url =
           target.tagName === "A" ? target.href : target.parentElement.href;
-        const apiUrl = `http://${api_url}/api/fetch_article?url=${encodeURIComponent(
+        const apiUrl = `https://${api_url}/api/fetch_article?url=${encodeURIComponent(
           url
         )}`;
         await fetchArticle(apiUrl);

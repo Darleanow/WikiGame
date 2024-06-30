@@ -15,7 +15,7 @@ const FetchArticles = ({
   const fetchArticles = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch(`http://${api_url}/api/get_random_articles`);
+      const response = await fetch(`https://${api_url}/api/get_random_articles`);
       const data = await response.json();
       if (data.error) {
         throw new Error(data.error);
