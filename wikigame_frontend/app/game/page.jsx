@@ -146,7 +146,7 @@ const Game = () => {
               startPageName={startArticle.name}
               currentPageName={currentArticle.name}
               goalPageName={goalArticle.name}
-              score={scoreRef.current}
+              score={scoreRef.current  * getMultiplier()}
             />
             <GameContent
               randomArticleContent={randomArticleContent}
