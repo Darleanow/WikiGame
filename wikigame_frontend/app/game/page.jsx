@@ -9,6 +9,8 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Popup from "../components/Popup/popup";
 
+const api_url = process.env.REACT_API_URL;
+
 const Game = () => {
   const [startArticle, setStartArticle] = useState(null);
   const [currentArticle, setCurrentArticle] = useState(null);
@@ -54,7 +56,7 @@ const Game = () => {
         event.preventDefault();
         const url =
           target.tagName === "A" ? target.href : target.parentElement.href;
-        const apiUrl = `http://localhost:8000/api/fetch_article?url=${encodeURIComponent(
+        const apiUrl = `http://${api_url}/api/fetch_article?url=${encodeURIComponent(
           url
         )}`;
         await fetchArticle(apiUrl);
@@ -86,7 +88,7 @@ const Game = () => {
     const username = urlParams.get("username");
 
     try {
-      await fetch("http://localhost:8000/api/add_score", {
+      await fetch(`http://${api_url}:8000/api/add_score`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

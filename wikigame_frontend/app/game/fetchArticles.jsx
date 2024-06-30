@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { toast } from "react-toastify";
 
+const api_url = process.env.REACT_API_URL;
+
 const FetchArticles = ({
   setStartArticle,
   setCurrentArticle,
@@ -13,9 +15,7 @@ const FetchArticles = ({
   const fetchArticles = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch(
-        "http://localhost:8000/api/get_random_articles"
-      );
+      const response = await fetch(`http://${api_url}/api/get_random_articles`);
       const data = await response.json();
       if (data.error) {
         throw new Error(data.error);
