@@ -129,4 +129,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CORS_ALLOWED_ORIGINS = [
     "https://wikigame.darleanow.com",
     "https://backend-wikigame.darleanow.com"
+    "localhost:3000", # local debug
 ]
