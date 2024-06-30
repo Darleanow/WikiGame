@@ -1,8 +1,8 @@
 {
     "scripts": {
-        "dev": "cross-env NODE_ENV=development next dev",
-        "build": "cross-env NODE_ENV=production next build",
-        "start": "cross-env NODE_ENV=development next start",
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
         "lint": "next lint"
     },
     "dependencies": {
@@ -19,6 +19,7 @@
         "react-shadow": "^20.5.0",
         "react-toastify": "^10.0.5",
         "sass": "^1.77.6",
+        "scss": "^0.2.4",
         "sweetalert": "^2.1.2",
         "tsparticles": "^3.4.0"
     }

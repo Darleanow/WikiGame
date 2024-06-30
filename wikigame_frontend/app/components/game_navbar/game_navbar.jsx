@@ -9,12 +9,12 @@ export default function GameNavbar({
 
   return (
     <nav className={styles.navbar_container}>
-      <span classname={styles.span_text_game}>
+      <span>
         Current Page: {currentPageName}
       </span>
-      <span classname={styles.span_text_game}>Start Page: {startPageName}</span>
-      <span classname={styles.span_text_game}>Goal Page: {goalPageName}</span>
-      <span classname={styles.span_text_game}>Score: {score}</span>
+      <span>Start Page: {startPageName}</span>
+      <span>Goal Page: {goalPageName}</span>
+      <span>Score: {score}</span>
     </nav>
   );
 }
