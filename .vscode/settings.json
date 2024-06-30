@@ -6,6 +6,8 @@
     ],
     "conventionalCommits.scopes": [
         "Popup",
-        "Backend"
+        "Backend",
+        "Deployment",
+        "Frontend"
     ]
 }

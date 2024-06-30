@@ -27,6 +27,7 @@ const Game = () => {
         scoreRef.current = Math.max(0, scoreRef.current - 1);
         setScoreTrigger(scoreRef.current);
       }
+      setGoalReached(true);
     }, 1000);
 
     return () => clearInterval(interval);

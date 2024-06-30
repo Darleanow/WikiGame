@@ -1,8 +1,12 @@
+import { useRouter } from "next/navigation";
+
 import React, { useEffect } from "react";
 import confetti from "canvas-confetti";
 import styles from "./styles.module.css";
+import Button from "../button/button";
 
 const Popup = ({ score, routes, multiplier }) => {
+  const router = useRouter();
   useEffect(() => {
     const duration = 15 * 1000;
     const animationEnd = Date.now() + duration;
@@ -51,6 +55,13 @@ const Popup = ({ score, routes, multiplier }) => {
             <li key={index}>{route}</li>
           ))}
         </ul>
+        <Button
+          children={`Go back to home`}
+          onClick={() => {
+            router.push("/");
+          }}
+          bgColor={"rgba(86,79,104,0.47)"}
+        />
       </div>
     </div>
   );
