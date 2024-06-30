@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
+import axios from "axios";
+
 import GameNavbar from "../components/game_navbar/game_navbar";
 import FetchArticles from "./fetchArticles";
 import GameContent from "./gameContent";
@@ -10,6 +12,8 @@ import "react-toastify/dist/ReactToastify.css";
 import Popup from "../components/Popup/popup";
 
 const api_url = process.env.NEXT_PUBLIC_API_URL;
+const kv_api_url = process.env.NEXT_PUBLIC_KV_REST_API_URL;
+const kv_api_token = process.env.NEXT_PUBLIC_KV_REST_API_TOKEN;
 
 const Game = () => {
   const [startArticle, setStartArticle] = useState(null);
@@ -88,13 +92,32 @@ const Game = () => {
     const username = urlParams.get("username");
 
     try {
-      await fetch(`http://${api_url}:8000/api/add_score`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, score }),
-      });
+      // Check if the key/value exists
+      const getResponse = await axios.get(
+        `${kv_api_url}/get/${username}`,
+        {
+          headers: {
+            Authorization: `Bearer ${kv_api_token}`,
+          },
+        }
+      );
+
+      const currentScore = getResponse.data.result;
+
+      // Set the score only if the new score is better
+      if (!currentScore || score > parseInt(currentScore)) {
+        await axios.get(
+          `${kv_api_url}/set/${username}/${score}`,
+          {
+            headers: {
+              Authorization: `Bearer ${kv_api_token}`,
+            },
+          }
+        );
+        toast.success("Score updated on leaderboard!");
+      } else {
+        toast.info("Your score was not high enough to update the leaderboard.");
+      }
     } catch (error) {
       console.error("Error adding score to leaderboard:", error);
     }
