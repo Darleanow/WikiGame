@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-b5vjwepn!t#%8d@)ps9#m5f2(n@d+(%j7r7n_zri-cm(jp6wo=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh', "wikigame.darleanow.com", "*", "localhost:3000"]
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '*', "wikigame.darleanow.com", "localhost"]
 
 # Application definition
 
@@ -129,5 +129,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CORS_ALLOWED_ORIGINS = [
     "https://wikigame.darleanow.com",
     "https://backend-wikigame.darleanow.com"
-    "localhost:3000", # local debug
+    "http://localhost:3000",
+    "http://localhost:8000",
 ]
