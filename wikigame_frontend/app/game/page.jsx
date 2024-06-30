@@ -74,7 +74,7 @@ const Game = () => {
         if (articleName === goalArticle.name) {
           setGoalReached(true);
           toast.success("Congratulations! You've reached the goal article!");
-          addScoreToLeaderboard(scoreRef.current); // Add score to leaderboard
+          addScoreToLeaderboard(scoreRef.current * getMultiplier()); // Add score to leaderboard
         } else {
           scoreRef.current = Math.max(
             0,
