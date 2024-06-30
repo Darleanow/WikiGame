@@ -1,34 +1,97 @@
-# Wikigame
+# 🌐 Wikigame
 
-## Setup instructions
+Welcome to the Wikigame project! This guide will help you set up the backend and frontend of the Wikigame. Let's get started! 🚀
 
-### Setting up the backend
+## 🛠️ Setup Instructions
 
-```bash
-# Go into the wikigame backend folder
-cd wikigame_backend
-```
+### 🖥️ Setting up the Backend
 
-```bash
-# Install required packages
-pip install -r requirements.txt
+1. **Clone the repository** 📂
 
-# Make a migration to ensure you have the latest version
-python .\manage.py migrate
+   ```bash
+   git clone git@github.com:Darleanow/WikiGame.git
+   ```
 
-# Run the server, it will be available at localhost:8000
-python .\manage.py runserver
-```
+2. **Navigate to the project directory** 📁
 
-### Setting up the frontend
+   ```bash
+   cd WikiGame
+   ```
 
-```bash
-# Go into the wikigame frontend folder
-cd wikigame_frontend
+3. **Set up a virtual environment** 🌐
 
-# Install required packages
-npm install
+   ```bash
+   python -m venv .venv
+   ```
 
-# Run the dev version, it will be accessible at localhost:3000
-npm run dev
-```
+4. **Activate the virtual environment** 🐍
+
+   ```bash
+   .venv\Scripts\activate
+   ```
+
+   *Note: If you are on MacOS or Linux, use `source .venv/bin/activate` instead.*
+
+5. **Install the required packages** 📦
+
+   ```bash
+   pip install -r ./wikigame_backend/requirements.txt
+   ```
+
+6. **Run the backend server** 🚀
+
+   ```bash
+   python ./manage.py runserver
+   ```
+
+   Your backend server should now be running on `http://127.0.0.1:8000/` 🎉
+
+### 🌐 Setting up the Frontend
+
+1. **Navigate to the frontend directory** 📁
+
+   ```bash
+   cd ../wikigame_frontend
+   ```
+
+2. **Install the frontend dependencies** 📦
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the frontend development server** 🚀
+
+   ```bash
+   npm run dev
+   ```
+
+   Your frontend server should now be running on `http://localhost:3000/` 🎉
+
+## 📜 Summary
+
+You've now set up both the backend and frontend for Wikigame! Here are the quick steps summarized:
+
+1. **Backend Setup**:
+   - Clone the repo
+   - Navigate to the project directory
+   - Set up and activate the virtual environment
+   - Install dependencies
+   - Run the server
+
+2. **Frontend Setup**:
+   - Navigate to the frontend directory
+   - Install dependencies
+   - Run the development server
+
+## 🎉 Congratulations!
+
+You're all set up to start developing with Wikigame. Happy coding! ✨
+
+## 💬 Need Help?
+
+If you encounter any issues, feel free to open an issue on GitHub. I'm here to help!
+
+---
+
+*Made with ❤️ by myself :p*
